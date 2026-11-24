@@ -1,0 +1,9 @@
+﻿ID;Cenário de teste;Resultado esperado;Status observado;Observações
+T01;Cadastrar tarefa com todos os campos válidos.;A tarefa aparece na listagem e o contador é atualizado.;A executar;;
+T02;Tentar salvar sem título ou sem data.;O navegador solicita o preenchimento do campo obrigatório.;A executar;;
+T03;Editar uma tarefa existente.;Os dados atualizados aparecem na listagem.;A executar;;
+T04;Excluir uma tarefa e confirmar.;A tarefa deixa de aparecer na listagem.;A executar;;
+T05;Pesquisar por parte do título ou matéria.;Apenas tarefas correspondentes são exibidas.;A executar;;
+T06;Selecionar um filtro de status.;A listagem mostra somente o status selecionado.;A executar;;
+T07;Cadastrar tarefa e atualizar a página.;A tarefa continua armazenada no mesmo navegador.;A executar;;
+T08;Visualizar a aplicação em tela estreita.;Os campos e cartões se reorganizam sem sobreposição.;A executar;;

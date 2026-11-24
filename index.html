@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplicação simples para organizar tarefas acadêmicas.">
+  <title>Organizaê | Tarefas acadêmicas</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Organizaê - início"><span class="brand-mark">O</span> organizaê</a>
+    <span class="top-note">Seu espaço de organização acadêmica</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">PAINEL DO ESTUDANTE</p>
+        <h1>Organize seus estudos.<br><span>Conquiste seus objetivos.</span></h1>
+        <p class="intro">Cadastre suas atividades, acompanhe os prazos e mantenha tudo em dia.</p>
+      </div>
+      <div class="welcome-icon" aria-hidden="true">✦</div>
+    </section>
+
+    <section class="stats" aria-label="Resumo das tarefas">
+      <article class="stat-card"><span class="stat-label">Total de tarefas</span><strong id="totalCount">0</strong><span class="stat-hint">Atividades cadastradas</span></article>
+      <article class="stat-card"><span class="stat-label">Pendentes</span><strong id="pendingCount">0</strong><span class="stat-hint">Precisam de atenção</span></article>
+      <article class="stat-card"><span class="stat-label">Concluídas</span><strong id="doneCount">0</strong><span class="stat-hint">Bom trabalho!</span></article>
+    </section>
+
+    <section class="workspace">
+      <section class="panel form-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">NOVA ATIVIDADE</p><h2 id="formTitle">Adicionar tarefa</h2></div>
+          <span class="heading-icon">＋</span>
+        </div>
+        <form id="taskForm">
+          <input type="hidden" id="taskId">
+          <label for="title">Título da tarefa *</label>
+          <input id="title" name="title" type="text" maxlength="70" placeholder="Ex.: Entregar trabalho de matemática" required>
+          <div class="field-row">
+            <div class="field">
+              <label for="subject">Matéria</label>
+              <input id="subject" name="subject" type="text" maxlength="40" placeholder="Ex.: Matemática">
+            </div>
+            <div class="field">
+              <label for="dueDate">Data de entrega *</label>
+              <input id="dueDate" name="dueDate" type="date" required>
+            </div>
+          </div>
+          <label for="description">Descrição</label>
+          <textarea id="description" name="description" rows="3" maxlength="240" placeholder="Detalhes importantes (opcional)"></textarea>
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluída">Concluída</option>
+          </select>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="saveButton">Salvar tarefa</button>
+            <button class="btn btn-quiet hidden" type="button" id="cancelEdit">Cancelar</button>
+          </div>
+          <p class="form-footnote">* Campos obrigatórios</p>
+        </form>
+      </section>
+
+      <section class="panel list-panel">
+        <div class="section-heading list-heading">
+          <div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Minhas tarefas</h2></div>
+          <span class="task-total" id="visibleCount">0 tarefas</span>
+        </div>
+        <div class="toolbar">
+          <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Pesquisar tarefa..." aria-label="Pesquisar tarefa"></div>
+          <select id="filterStatus" aria-label="Filtrar por status">
+            <option value="Todas">Todos os status</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluída">Concluída</option>
+          </select>
+        </div>
+        <div id="taskList" class="task-list" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">✓</div><h3>Nenhuma tarefa por aqui</h3><p>Cadastre sua primeira atividade usando o formulário ao lado.</p>
+        </div>
+      </section>
+    </section>
+    <footer>Organizaê · Projeto Integrador · Dados salvos neste navegador</footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
